@@ -7,34 +7,37 @@ import CategoryPage from "./pages/CategoryPage";
 import Favourites from "./pages/Favourites";
 import SearchPage from "./components/SearchPage";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        index: true,
-        element: <FrontPage />,
-      },
-      {
-        path: "category/:topic",
-        element: <CategoryPage />,
-      },
-      {
-        path: "favorites",
-        element: <Favourites />,
-      },
-      {
-        path: "book/:id",
-        element: <BookDetails />,
-      },
-      {
-        path: "search/:searchText",
-        element: <SearchPage />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          index: true,
+          element: <FrontPage />,
+        },
+        {
+          path: "category/:topic",
+          element: <CategoryPage />,
+        },
+        {
+          path: "favorites",
+          element: <Favourites />,
+        },
+        {
+          path: "book/:id",
+          element: <BookDetails />,
+        },
+        {
+          path: "search/:searchText",
+          element: <SearchPage />,
+        },
+      ],
+    },
+  ],
+  { basename: "/GutenIndex" },
+);
 
 export default function App() {
   return <RouterProvider router={router} />;
